@@ -5,10 +5,12 @@
  */
 package controlador;
 
+import modelo.Usuario;
+
 /**
  *
  * @author Alexander
  */
 public interface InterfazDao {
-    
+    public Usuario buscarUsuario(String usuario, String contrasena);
 }

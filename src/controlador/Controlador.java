@@ -5,10 +5,25 @@
  */
 package controlador;
 
+import modelo.Usuario;
+
 /**
  *
  * @author Alexander
  */
 public class Controlador {
+
+    private static InterfazDao daoU = new DaoImplemnetBD();
+    private static InterfazDao daoF = new DaoImplementFile();
     
+    
+    public static Usuario buscarUsuarioBD(String nombre, String contrasena) {
+        return daoU.buscarUsuario(nombre, contrasena);
+    }
+    
+        public static Usuario buscarUsuarioFi(String nombre, String contrasena) {
+        return daoF.buscarUsuario(nombre, contrasena);
+    }
+
+
 }
