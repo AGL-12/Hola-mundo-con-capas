@@ -9,6 +9,6 @@ package controlador;
  *
  * @author Alexander
  */
-public class DaoImplemnetBD {
+public class DaoImplemnetBD implements InterfazDao{
     
 }

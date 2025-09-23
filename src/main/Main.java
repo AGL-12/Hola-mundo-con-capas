@@ -5,10 +5,14 @@
  */
 package main;
 
-/**
- *
- * @author Alexander
- */
+import controlador.*;
+
 public class Main {
+    
+    InterfazDao dao = DaoImplemnetBD();
+    
+    public static void main(String[] args) {
+        // TODO code application logic here
+    }
     
 }
