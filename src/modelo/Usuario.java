@@ -22,10 +22,10 @@ public class Usuario {
     private Date fechaNace;
     private int cp;
 
-    public Usuario(String nombre, String contrasena, String email, boolean titulao, String genero, Date fechaNace, int cp) {
+    public Usuario(String email, String nombre, String contrasena, boolean titulao, String genero, Date fechaNace, int cp) {
+        this.email = email;
         this.nombre = nombre;
         this.contrasena = contrasena;
-        this.email = email;
         this.titulao = titulao;
         this.genero = genero;
         this.fechaNace = fechaNace;
