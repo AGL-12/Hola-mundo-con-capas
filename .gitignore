@@ -3,3 +3,5 @@ build/
 dist/
 nbbuild/
 nbdist/
+manifest.mf
+build.xml

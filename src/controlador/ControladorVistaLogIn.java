@@ -9,6 +9,6 @@ package controlador;
  *
  * @author Alexander
  */
-public class Controlador {
+public class ControladorVistaLogIn {
     
 }
