@@ -19,3 +19,10 @@
 .button:hover {
     -fx-background-color: #45a049;
 }
+.radio-button {
+    -fx-text-fill: white;
+}
+
+.radio-button:hover {
+    -fx-text-fill: #ffffff;
+}
