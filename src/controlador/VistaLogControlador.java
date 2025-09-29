@@ -1,10 +1,17 @@
 package controlador;
 
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.control.PasswordField;
+import javafx.stage.Stage;
 import modelo.Usuario;
 
 public class VistaLogControlador {
@@ -17,18 +24,16 @@ public class VistaLogControlador {
     private Button btnLogin;
 
     @FXML
-    private void initialize() {
-        btnLogin.setOnAction(e -> iniciarSesion());
-    }
-
     private void iniciarSesion() {
         String email = tfEmail.getText();
         String pass = tpContra.getText();
-
+        System.out.println("afhadghj");
+        System.out.println(email);
+        System.out.println(pass);
         Usuario u = Controlador.buscarUsuarioBD(email, pass);
 
         if (u != null) {
-               
+            abrirVentenaDatos(u);
         } else {
             u = Controlador.buscarUsuarioFi(email, pass);
             if (u != null) {
@@ -37,5 +42,22 @@ public class VistaLogControlador {
 
         }
 
+    }
+
+    private void abrirVentenaDatos(Usuario u) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/VistaDatos.fxml"));
+            Scene scene = new Scene(loader.load());
+
+            VistaDatosControlador controlador = loader.getController();
+            controlador.setUsuario(u);
+
+            Stage stage = new Stage();
+            stage.setTitle("Datos del usuario");
+            stage.setScene(scene);
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
