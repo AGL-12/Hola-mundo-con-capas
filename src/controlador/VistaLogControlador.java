@@ -1,5 +1,6 @@
 package controlador;
 
+import exception.LoginException;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -22,21 +23,28 @@ public class VistaLogControlador {
     private Button btnLogin;
 
     @FXML
-    private void iniciarSesion() {
+    private void iniciarSesion() throws LoginException {
         String email = tfEmail.getText();
         String pass = tpContra.getText();
-        Usuario u = Controlador.buscarUsuarioBD(email, pass);
-        if (u != null) {
-            abrirVentenaDatos(u);
-            mostrarAlerta("Éxito", "Usuario encontrado en la base de datos");
-        } else {
-            u = Controlador.buscarUsuarioFi(email, pass);
-            abrirVentenaDatos(u);
-            mostrarAlerta("Éxito", "Usuario encontrado en el fichero");            
-            if (u != null) {
+        Usuario u = null;
+        try {
+             u = Controlador.buscarUsuarioBD(email, pass);
 
+            if (u == null) {
+                u = Controlador.buscarUsuarioFi(email, pass);
+                if (u == null) {
+                    throw new LoginException("Usuario no encontrado con email: " + email);
+                }
             }
 
+            abrirVentenaDatos(u);
+            mostrarAlerta("Éxito", "Usuario encontrado");
+
+        } catch (LoginException e) {
+            mostrarAlerta("Error", e.getMessage());
+        } catch (Exception e) {
+            e.printStackTrace();
+            mostrarAlerta("Error", "Ha ocurrido un error inesperado.");
         }
 
     }
