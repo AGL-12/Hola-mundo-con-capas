@@ -28,8 +28,11 @@ public class VistaLogControlador {
         Usuario u = Controlador.buscarUsuarioBD(email, pass);
         if (u != null) {
             abrirVentenaDatos(u);
+            mostrarAlerta("Éxito", "Usuario encontrado en la base de datos");
         } else {
             u = Controlador.buscarUsuarioFi(email, pass);
+            abrirVentenaDatos(u);
+            mostrarAlerta("Éxito", "Usuario encontrado en el fichero");            
             if (u != null) {
 
             }
@@ -53,5 +56,13 @@ public class VistaLogControlador {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    private void mostrarAlerta(String titulo, String mensaje) {
+        javafx.scene.control.Alert alert = new javafx.scene.control.Alert(javafx.scene.control.Alert.AlertType.INFORMATION);
+        alert.setTitle(titulo);
+        alert.setHeaderText(null);
+        alert.setContentText(mensaje);
+        alert.showAndWait();
     }
 }
