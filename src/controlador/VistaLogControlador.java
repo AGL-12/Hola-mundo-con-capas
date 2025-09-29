@@ -10,6 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.control.PasswordField;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import modelo.Usuario;
 
@@ -28,7 +29,7 @@ public class VistaLogControlador {
         String pass = tpContra.getText();
         Usuario u = null;
         try {
-             u = Controlador.buscarUsuarioBD(email, pass);
+            u = Controlador.buscarUsuarioBD(email, pass);
 
             if (u == null) {
                 u = Controlador.buscarUsuarioFi(email, pass);
@@ -61,7 +62,11 @@ public class VistaLogControlador {
             stage.setResizable(false);
             stage.setTitle("Datos del usuario");
             stage.setScene(scene);
-            stage.show();
+
+            // BLOQUEA LA VENTANA ANTERIOR  
+            stage.initModality(Modality.APPLICATION_MODAL);
+            // showAndWait() espera a que se cierre la ventana
+            stage.showAndWait();
         } catch (Exception e) {
             e.printStackTrace();
         }
