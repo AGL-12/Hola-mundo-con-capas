@@ -17,12 +17,12 @@ public class Controlador {
     private static InterfazDao daoF = new DaoImplementFile();
     
     
-    public static Usuario buscarUsuarioBD(String nombre, String contrasena) {
-        return daoU.buscarUsuario(nombre, contrasena);
+    public static Usuario buscarUsuarioBD(String email, String contrasena) {
+        return daoU.buscarUsuario(email, contrasena);
     }
     
-        public static Usuario buscarUsuarioFi(String nombre, String contrasena) {
-        return daoF.buscarUsuario(nombre, contrasena);
+        public static Usuario buscarUsuarioFi(String email, String contrasena) {
+        return daoF.buscarUsuario(email, contrasena);
     }
 
 
