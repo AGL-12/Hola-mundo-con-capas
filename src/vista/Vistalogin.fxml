@@ -6,7 +6,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.VistaLogControlador">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" stylesheets="@LoginCSS.css" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.VistaLogControlador">
     <children>
         <Button fx:id="btnCancelar" layoutX="369.0" layoutY="327.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="130.0" text="cancelar" />
         <Button fx:id="btnLogin" layoutX="93.0" layoutY="327.0" mnemonicParsing="false" onAction="#iniciarSesion" prefHeight="25.0" prefWidth="130.0" text="Iniciar sesion" />

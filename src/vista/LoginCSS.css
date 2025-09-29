@@ -1,0 +1,21 @@
+/* estilos.css */
+.root {
+    -fx-background-color: linear-gradient(to bottom, #1e3c72, #2a5298);
+}
+
+.label {
+    -fx-font-size: 14px;
+    -fx-text-fill: white;
+}
+
+.button {
+    -fx-background-color: #4CAF50;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 10;
+    -fx-padding: 8 15;
+}
+
+.button:hover {
+    -fx-background-color: #45a049;
+}

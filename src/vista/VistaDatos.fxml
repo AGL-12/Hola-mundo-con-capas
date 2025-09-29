@@ -6,7 +6,7 @@
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.VistaLogControlador">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.VistaDatosControlador">
     <children>
         <Label layoutX="156.0" layoutY="46.0" text="Email" />
         <Label layoutX="148.0" layoutY="95.0" text="Nombre" />
@@ -21,11 +21,11 @@
       <TextField fx:id="TextField_Genero" editable="false" layoutX="251.0" layoutY="233.0" />
       <TextField fx:id="TextField_Fecha" editable="false" layoutX="251.0" layoutY="274.0" />
       <TextField fx:id="TextField_CP" editable="false" layoutX="251.0" layoutY="325.0" />
-      <RadioButton layoutX="257.0" layoutY="191.0" mnemonicParsing="false" text="Si">
+      <RadioButton fx:id="rbSi" disable="true" layoutX="257.0" layoutY="191.0" mnemonicParsing="false" text="Si">
          <toggleGroup>
             <ToggleGroup fx:id="grupoTitulado" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton layoutX="362.0" layoutY="191.0" mnemonicParsing="false" text="No" toggleGroup="$grupoTitulado" />
+      <RadioButton fx:id="rbNo" disable="true" layoutX="362.0" layoutY="191.0" mnemonicParsing="false" text="No" toggleGroup="$grupoTitulado" />
     </children>
 </AnchorPane>
