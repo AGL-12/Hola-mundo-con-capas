@@ -1,31 +1,44 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package controlador;
 
-import java.io.EOFException;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.ObjectInputStream;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import modelo.Usuario;
 
 /**
- *
- * @author Alexander
+ * Implementación de {@link InterfazDao} que gestiona el acceso a datos de
+ * usuarios almacenados en un archivo de texto.
+ * <p>
+ * Cada línea del archivo representa un usuario con sus atributos separados por
+ * punto y coma (<code>;</code>).
+ * </p>
  */
 public class DaoImplementFile implements InterfazDao {
 
+    /**
+     * Ruta al archivo de usuarios.
+     */
     private String filePath;
 
+    /**
+     * Constructor por defecto.
+     * <p>
+     * Inicializa la ruta del archivo donde se almacenan los usuarios.
+     * </p>
+     */
     public DaoImplementFile() {
         this.filePath = "src/data/usuarios";
     }
 
+    /**
+     * Busca un usuario en el archivo comparando email y contraseña.
+     *
+     * @param email correo electrónico del usuario
+     * @param contra contraseña del usuario
+     * @return un objeto {@link Usuario} si se encuentra, o {@code null} en caso
+     * contrario
+     */
+    @Override
     public Usuario buscarUsuario(String email, String contra) {
         List<Usuario> usuarios = leerUsuarios();
         for (Usuario u : usuarios) {
@@ -36,9 +49,20 @@ public class DaoImplementFile implements InterfazDao {
         return null;
     }
 
+    /**
+     * Lee todos los usuarios almacenados en el archivo.
+     * <p>
+     * Cada línea debe tener el siguiente formato:
+     * <pre>
+     * email;nombre;contraseña;titulado;genero;fechaNace;cp
+     * </pre>
+     * </p>
+     *
+     * @return una lista de usuarios leídos del archivo
+     */
     private List<Usuario> leerUsuarios() {
         List<Usuario> usuarios = new ArrayList<>();
-        java.io.File file = new java.io.File(filePath);
+        File file = new File(filePath);
 
         try (java.util.Scanner sc = new java.util.Scanner(file)) {
             while (sc.hasNextLine()) {

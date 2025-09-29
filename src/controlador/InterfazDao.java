@@ -1,16 +1,23 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package controlador;
 
 import modelo.Usuario;
 
 /**
- *
- * @author Alexander
+ * Interfaz que define las operaciones de acceso a datos para la entidad
+ * {@link Usuario}.
+ * <p>
+ * Se puede implementar con distintas fuentes de datos, como base de datos o
+ * archivos.
+ * </p>
  */
 public interface InterfazDao {
-    public Usuario buscarUsuario(String usuario, String contrasena);
+
+    /**
+     * Busca un usuario según email y su contraseña.
+     *
+     * @param email identificador del usuario.
+     * @param contrasena contraseña del usuario
+     * @return el {@link Usuario} encontrado, o {@code null} si no existe
+     */
+    public Usuario buscarUsuario(String email, String contrasena);
 }

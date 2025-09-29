@@ -1,16 +1,18 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package exception;
 
 /**
- *
- * @author ander
+ * Excepción personalizada para errores en el proceso de inicio de sesión.
+ * <p>
+ * Se lanza cuando ocurre un fallo relacionado con la autenticación de un
+ * usuario.
+ * </p>
  */
 public class LoginException extends Exception {
-    private String mensaje;
+    /**
+     * Crea una nueva {@code LoginException} con un mensaje de error.
+     *
+     * @param mensaje descripción del error ocurrido
+     */
     public LoginException(String mensaje) {
         super(mensaje);
     }
