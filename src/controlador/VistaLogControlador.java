@@ -31,7 +31,7 @@ public class VistaLogControlador {
         } else {
             u = Controlador.buscarUsuarioFi(email, pass);
             if (u != null) {
-
+               abrirVentenaDatos(u);  
             }
 
         }
