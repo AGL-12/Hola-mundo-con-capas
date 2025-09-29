@@ -1,7 +1,6 @@
 package controlador;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.control.PasswordField;
@@ -26,9 +25,9 @@ public class VistaLogControlador {
         String pass = tpContra.getText();
 
         Usuario u = Controlador.buscarUsuarioBD(email, pass);
-
+        System.out.println("Vamo mu mal");
         if (u != null) {
-               
+            
         } else {
             u = Controlador.buscarUsuarioFi(email, pass);
             if (u != null) {

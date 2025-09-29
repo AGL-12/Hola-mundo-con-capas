@@ -13,17 +13,15 @@ import modelo.Usuario;
  */
 public class Controlador {
 
-    private static InterfazDao daoU = new DaoImplemnetBD();
+    private static InterfazDao daoB = new DaoImplemnetBD();
     private static InterfazDao daoF = new DaoImplementFile();
-    
-    
+
     public static Usuario buscarUsuarioBD(String email, String contrasena) {
-        return daoU.buscarUsuario(email, contrasena);
-    }
-    
-        public static Usuario buscarUsuarioFi(String email, String contrasena) {
-        return daoF.buscarUsuario(email, contrasena);
+        return daoB.buscarUsuario(email, contrasena);
     }
 
+    public static Usuario buscarUsuarioFi(String email, String contrasena) {
+        return daoF.buscarUsuario(email, contrasena);
+    }
 
 }
