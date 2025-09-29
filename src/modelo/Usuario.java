@@ -18,16 +18,16 @@ public class Usuario {
     private String contrasena;
     private String email;
     private boolean titulao;
-    private String sexo;
+    private String genero;
     private Date fechaNace;
     private int cp;
 
-    public Usuario(String nombre, String contrasena, String email, boolean titulao, String sexo, Date fechaNace, int cp) {
+    public Usuario(String email, String nombre, String contrasena, boolean titulao, String genero, Date fechaNace, int cp) {
+        this.email = email;
         this.nombre = nombre;
         this.contrasena = contrasena;
-        this.email = email;
         this.titulao = titulao;
-        this.sexo = sexo;
+        this.genero = genero;
         this.fechaNace = fechaNace;
         this.cp = cp;
     }
@@ -64,12 +64,12 @@ public class Usuario {
         this.titulao = titulao;
     }
 
-    public String getSexo() {
-        return sexo;
+    public String getGenero() {
+        return genero;
     }
 
-    public void setSexo(String sexo) {
-        this.sexo = sexo;
+    public void setGenero(String genero) {
+        this.genero = genero;
     }
 
     public Date getFechaNace() {
@@ -90,7 +90,7 @@ public class Usuario {
 
     @Override
     public String toString() {
-        return "Usuario{" + "nombre=" + nombre + ", contrasena=" + contrasena + ", email=" + email + ", titulao=" + titulao + ", sexo=" + sexo + ", fechaNace=" + fechaNace + ", cp=" + cp + '}';
+        return "Usuario{" + "nombre=" + nombre + ", contrasena=" + contrasena + ", email=" + email + ", titulao=" + titulao + ", genero=" + genero + ", fechaNace=" + fechaNace + ", cp=" + cp + '}';
     }
 
 }

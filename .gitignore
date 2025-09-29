@@ -3,5 +3,10 @@ build/
 dist/
 nbbuild/
 nbdist/
+<<<<<<< HEAD
 manifest.mf
 build.xml
+=======
+build.xml
+manifest.mf
+>>>>>>> dev
