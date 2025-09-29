@@ -1,8 +1,10 @@
 package controlador;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 import modelo.Usuario;
 
 /**
@@ -64,7 +66,7 @@ public class DaoImplementFile implements InterfazDao {
         List<Usuario> usuarios = new ArrayList<>();
         File file = new File(filePath);
 
-        try (java.util.Scanner sc = new java.util.Scanner(file)) {
+        try (Scanner sc = new Scanner(file)) {
             while (sc.hasNextLine()) {
                 String linea = sc.nextLine();
                 String[] campos = linea.split(";");
@@ -79,7 +81,7 @@ public class DaoImplementFile implements InterfazDao {
                 usuarios.add(new Usuario(email, nombre, contrasena, titulado, genero, fechaNace, cp));
 
             }
-        } catch (java.io.FileNotFoundException e) {
+        } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
 

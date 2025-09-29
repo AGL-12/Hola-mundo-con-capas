@@ -40,6 +40,16 @@ public class VistaLogControlador {
     private Button btnLogin;
 
     /**
+     * Metodo para cerrar la ventana
+     */
+    @FXML
+    private void CerrarVent() {
+        // Obtener el Stage actual desde cualquier nodo (ej: el botón)
+        Stage stage = (Stage) btnLogin.getScene().getWindow();
+        stage.close();
+    }
+
+    /**
      * Intenta iniciar sesión con las credenciales introducidas.
      * <p>
      * Primero busca el usuario en la base de datos, y si no lo encuentra, lo
