@@ -26,24 +26,26 @@ public class VistaLogControlador {
     private void iniciarSesion() throws LoginException {
         String email = tfEmail.getText();
         String pass = tpContra.getText();
+
         Usuario u = null;
         try {
-             u = Controlador.buscarUsuarioBD(email, pass);
-
-            if (u == null) {
+            u = Controlador.buscarUsuarioBD(email, pass);
+            if (u != null) {
+                abrirVentenaDatos(u);
+                mostrarAlerta("Éxito", "Usuario encontrado en la base de datos");
+            } else {
                 u = Controlador.buscarUsuarioFi(email, pass);
-                if (u == null) {
+                if (u != null) {
+                    abrirVentenaDatos(u);
+                    mostrarAlerta("Éxito", "Usuario encontrado en el fichero");
+                } else {
                     throw new LoginException("Usuario no encontrado con email: " + email);
                 }
             }
-
-            abrirVentenaDatos(u);
-            mostrarAlerta("Éxito", "Usuario encontrado");
-
         } catch (LoginException e) {
             mostrarAlerta("Error", e.getMessage());
         } catch (Exception e) {
-            e.printStackTrace();
+            //e.printStackTrace();
             mostrarAlerta("Error", "Ha ocurrido un error inesperado.");
         }
 
