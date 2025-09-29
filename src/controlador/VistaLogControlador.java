@@ -25,11 +25,7 @@ public class VistaLogControlador {
     private void iniciarSesion() {
         String email = tfEmail.getText();
         String pass = tpContra.getText();
-        System.out.println("afhadghj");
-        System.out.println(email);
-        System.out.println(pass);
         Usuario u = Controlador.buscarUsuarioBD(email, pass);
-        System.out.println("Vamo mu mal");
         if (u != null) {
             abrirVentenaDatos(u);
         } else {
