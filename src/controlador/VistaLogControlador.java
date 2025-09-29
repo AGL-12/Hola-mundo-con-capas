@@ -50,6 +50,7 @@ public class VistaLogControlador {
             controlador.setUsuario(u);
 
             Stage stage = new Stage();
+            stage.setResizable(false);
             stage.setTitle("Datos del usuario");
             stage.setScene(scene);
             stage.show();
