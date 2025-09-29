@@ -9,11 +9,10 @@ package exception;
  *
  * @author ander
  */
-public class LoginErrorException extends Exception{
-    String mensaje;
-
-    public LoginErrorException(String message) {
-        super(message);
+public class LoginException extends Exception {
+    private String mensaje;
+    public LoginException(String mensaje) {
+        super(mensaje);
     }
-    
+
 }
